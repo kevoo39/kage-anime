@@ -1,0 +1,2 @@
+import {jikan} from '../../lib/jikan';import {AnimeCard} from '../../components/anime-card';
+export default async function Simulcast(){const data=await jikan<any[]>('/seasons/now?limit=48').catch(()=>[]);return <main className="section"><div className="eyebrow">Live Season</div><h1>Simulcast</h1><p className="muted">Current-season anime from the live metadata catalog.</p><div className="grid" style={{marginTop:20}}>{data.map(a=><AnimeCard key={a.mal_id} anime={a}/>)}</div></main>}
