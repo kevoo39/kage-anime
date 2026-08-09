@@ -1,0 +1,3 @@
+'use client';
+import Link from 'next/link';import {Search,UserCircle} from 'lucide-react';
+export function TopNav(){return <header className="topNav"><Link href="/" className="brand"><span className="brandEye">◉</span><span>KevStream</span></Link><nav className="desktopNav"><Link href="/">Home</Link><Link href="/simulcast">Simulcast</Link><Link href="/calendar">Calendar</Link><Link href="/genres">Genres</Link></nav><div className="navActions"><Link className="iconButton" href="/search" aria-label="Search"><Search size={19}/></Link><Link className="profileButton" href="/profiles"><UserCircle size={19}/><span>Profile</span></Link></div></header>}
