@@ -1,0 +1,2 @@
+import Link from 'next/link';import {jikan} from '../../lib/jikan';
+export default async function Genres(){const genres=await jikan<any[]>('/genres/anime?filter=genres').catch(()=>[]);return <main className="section"><div className="eyebrow">Explore</div><h1>Genres</h1><div className="grid">{genres.sort((a,b)=>a.name.localeCompare(b.name)).map(g=><Link key={g.mal_id} href={`/genre/${g.mal_id}`} className="glass" style={{padding:20,textDecoration:'none',color:'inherit'}}><h3>{g.name}</h3><div className="muted">Browse titles</div></Link>)}</div></main>}
