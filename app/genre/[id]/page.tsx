@@ -1,0 +1,2 @@
+import {jikan} from '../../../lib/jikan';import {AnimeCard} from '../../../components/anime-card';
+export default async function Genre({params}:{params:Promise<{id:string}>}){const{id}=await params;const data=await jikan<any[]>(`/anime?genres=${id}&limit=24&order_by=score&sort=desc`).catch(()=>[]);return <main className="section"><div className="eyebrow">Genre</div><h1>Anime collection</h1>{data.length?<div className="grid">{data.map(a=><AnimeCard key={a.mal_id} anime={a}/>)}</div>:<div className="empty">No titles available for this genre right now.</div>}</main>}
