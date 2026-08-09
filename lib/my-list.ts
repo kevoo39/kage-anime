@@ -1,0 +1,2 @@
+import type {Anime} from './jikan';
+const KEY='kevstream.my-list';export function getMyList():Anime[]{if(typeof window==='undefined')return[];try{return JSON.parse(localStorage.getItem(KEY)||'[]')}catch{return[]}}export function saveMyList(items:Anime[]){localStorage.setItem(KEY,JSON.stringify(items))}export function toggleMyList(anime:Anime){const items=getMyList();const next=items.some(x=>x.mal_id===anime.mal_id)?items.filter(x=>x.mal_id!==anime.mal_id):[...items,anime];saveMyList(next);return next}
